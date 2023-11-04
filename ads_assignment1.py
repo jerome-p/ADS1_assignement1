@@ -7,7 +7,7 @@ Dataset sourced from:
     https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023/discussion/445863
 """
 
-def generate_inflation_plot(dataset,country1,country2,country3):    
+def generate_inflation_plot_3_countries(dataset,country1,country2,country3):    
     """
     
     This function generates line plots for 3 countries from the world food
@@ -46,7 +46,7 @@ def generate_inflation_plot(dataset,country1,country2,country3):
     
     
     
-generate_inflation_plot('world_food_price_inflation_2007_2023.csv', 
+generate_inflation_plot_3_countries('world_food_price_inflation_2007_2023.csv', 
                         'Afghanistan', 'Myanmar', 'Nigeria')
 
 
@@ -69,9 +69,49 @@ plt.figure()
 plt.pie([bank_transfer_total,venmo_total,cash_total,
         credit_card_total,paypal_total,debit_card_total], 
         labels=['Bank Transfer','Venmo','Cash',
-                'Credit Card','PayPal','Debit Card'])
+                'Credit Card','PayPal','Debit Card'],
+        autopct='%.1f%%')
 
 plt.title('Pie chart of transaction type')
 plt.figure()
 plt.bar(shopping_trends_df['Category'],shopping_trends_df['Review Rating'])
 plt.title("Comparison of review ratings for each category of items sold")
+
+
+
+temp_df = pd.read_csv('world_food_inflation_details.csv')
+print(temp_df.head())
+
+print(temp_df[['country','total_food_price_increase_since_start_date']])
+
+temp_df['total_food_price_increase_since_start_date'] = temp_df['total_food_price_increase_since_start_date'].str.replace('%', '')
+
+temp_df['total_food_price_increase_since_start_date'] = pd.to_numeric(temp_df['total_food_price_increase_since_start_date'])
+temp_df = temp_df.sort_values('total_food_price_increase_since_start_date')
+
+
+plt.figure()
+plt.bar(temp_df['country'], temp_df['total_food_price_increase_since_start_date'])
+plt.title('Total increase of ')
+plt.xticks(rotation=90)
+
+plt.figure()
+line = plt.plot(temp_df['country'],temp_df['total_food_price_increase_since_start_date'])
+plt.xticks(rotation=90)
+
+temp2 = temp_df.query('country != ["Sudan", "South Sudan", "Lebanon", "Syrian Arab Republic"]' )
+plt.figure()
+bars = plt.bar(temp2['country'], temp2['total_food_price_increase_since_start_date'])
+plt.xticks(rotation=90)
+
+# access the bar attributes to place the text in the appropriate location
+for bar in bars:
+    yval = bar.get_height()
+    plt.text(bar.get_x(), yval + 10, yval, ha = 'center')
+    
+plt.show()
+
+
+#myexplode = [0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+#plt.pie(temp2['total_food_price_increase_since_start_date'], labels=temp2['country'], explode= myexplode)
