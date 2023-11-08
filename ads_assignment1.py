@@ -151,7 +151,7 @@ def generate_bar_chart_inflation_sicnce_start(dataset):
             bar.get_x(), yval + 10, yval, ha='center', rotation='vertical')
 
     # Save figure as png.
-    plt.savefig("figures/Inflation_since_start_(excluding last 4 countries)",
+    plt.savefig("figures/Inflation_since_start_(excluding_last_4_Scountries)",
                 bbox_inches='tight',
                 dpi=200)
     plt.show()
