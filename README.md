@@ -73,6 +73,7 @@ All the values represented in the bar graph are percentiles. This graph gives us
 Visualisation 3: 
 Payment methods used by customers for purchases
 
+![Viz3](figures/pie_chart_transaction_type.png)
  
 
 
