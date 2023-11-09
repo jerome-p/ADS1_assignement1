@@ -1,3 +1,4 @@
+# Importing libraries
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -97,7 +98,7 @@ def generate_bar_chart_inflation_sicnce_start(dataset):
             temp_df['total_food_price_increase_since_start_date'])
 
     # Labelling
-    plt.title('Increase in Inflation since 2008')
+    plt.title('Increase in food price since 2008')
     plt.xlabel('Countries')
     plt.ylabel('Inflation(%) Since 2008')
     plt.xticks(rotation=90)
@@ -116,6 +117,7 @@ def generate_bar_chart_inflation_sicnce_start(dataset):
              temp_df['total_food_price_increase_since_start_date'])
 
     # labelling
+    plt.title('Line graph for increase in food price since 2008')
     plt.xlabel('Countries')
     plt.ylabel('Inflation(%) Since 2008')
     plt.xticks(rotation=90)
@@ -139,12 +141,13 @@ def generate_bar_chart_inflation_sicnce_start(dataset):
                    temp2['total_food_price_increase_since_start_date'])
 
     # Labelling
-    plt.title("Increase in Inflation since 2008")
+    plt.title("Increase in food price since 2008")
     plt.xlabel('Countries')
     plt.ylabel('Inflation(%) Since 2008')
     plt.xticks(rotation=90)
 
     # access the bar attributes to place the text in the appropriate location
+    # https://stackoverflow.com/a/53072924
     for bar in bars:
         yval = bar.get_height()
         plt.text(
