@@ -66,6 +66,8 @@ def generate_inflation_plot_3_countries(dataset, country1, country2, country3):
                 dpi=200)
     plt.show()
 
+    return
+
 
 def generate_bar_chart_inflation_sicnce_start(dataset):
     """
@@ -159,6 +161,8 @@ def generate_bar_chart_inflation_sicnce_start(dataset):
                 dpi=200)
     plt.show()
 
+    return
+
 
 def generate_pie_chart_transaction_types(dataset):
     """
@@ -202,6 +206,8 @@ def generate_pie_chart_transaction_types(dataset):
                 dpi=200)
 
     plt.show()
+
+    return
 
 
 def main():
