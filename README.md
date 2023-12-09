@@ -3,8 +3,6 @@
 ADS1 Assignment-1
  Report
 
-Name: Jerome Paulraj
-Student ID: 22074395
 
 
 
